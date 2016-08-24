@@ -14,13 +14,17 @@ import org.apache.kafka.clients.consumer.KafkaConsumer;
 
 public class KafkaConsumerQueue {
 
+	// PROPRIEDADES
+	private final static String SERVER = "localhost:9092";
+	// PROPRIEDADES
+	
 	private KafkaConsumer<String, byte[]> consumer = null;
 	
 	private final String topic = "myTweetTopic";
 
 	public KafkaConsumerQueue() {
 		Properties properties = new Properties();
-		properties.put("bootstrap.servers", "localhost:9092");
+		properties.put("bootstrap.servers", SERVER);
 		properties.put("key.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
 		properties.put("value.deserializer", "org.apache.kafka.common.serialization.ByteArrayDeserializer");
 		properties.put("group.id", "test");

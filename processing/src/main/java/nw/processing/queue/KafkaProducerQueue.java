@@ -11,12 +11,17 @@ import org.apache.kafka.clients.producer.ProducerRecord;
 import nw.processing.MyTweet;
 
 public class KafkaProducerQueue {
+
+	// PROPRIEDADES
+	private final static String SERVER = "localhost:9092";
+	// PROPRIEDADES
+	
 	private static KafkaProducer<String, MyTweet> producer;
 	private final String topic = "myTweetTopic";
 
 	public KafkaProducerQueue() {
 		Properties properties = new Properties();
-		properties.put("bootstrap.servers", "localhost:9092");
+		properties.put("bootstrap.servers", SERVER);
 		properties.put("key.serializer", "org.apache.kafka.common.serialization.StringSerializer");
 		properties.put("value.serializer", "org.apache.kafka.common.serialization.ByteArraySerializer");
 		properties.put("request.required.acks", "1");
